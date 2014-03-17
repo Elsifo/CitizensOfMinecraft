@@ -1,0 +1,6 @@
+name: CitizenOfMinecraft
+version: 0.0.1-ALPHA
+main: me.elsifo92.com.Citizen
+commands:
+  com:
+    description: command
