@@ -2,7 +2,6 @@ package me.elsifo92.com.terrain;
 
 import java.util.UUID;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 public class Area 
@@ -24,7 +23,6 @@ public class Area
 	}
 	public boolean isInArea(Location l)
 	{
-		Bukkit.getConsoleSender().sendMessage("Checking");
 		boolean ris=false;
 		if(angle1.getBlockX()<angle2.getBlockX()) ris=(l.getBlockX()>angle1.getBlockX() && l.getBlockX()<angle2.getBlockX())?true:false;
 		else ris=(l.getBlockX()<angle1.getBlockX() && l.getBlockX()>angle2.getBlockX())?true:false;

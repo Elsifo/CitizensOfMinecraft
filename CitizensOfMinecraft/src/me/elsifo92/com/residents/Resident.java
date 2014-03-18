@@ -1,5 +1,7 @@
 package me.elsifo92.com.residents;
 
+import me.elsifo92.com.politicals.City;
+
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 
@@ -8,6 +10,7 @@ public class Resident
 	private OfflinePlayer p;
 	private Location sel1;
 	private Location sel2;
+	private City city;
 	public Resident(OfflinePlayer p)
 	{
 		this.p=p;
@@ -37,5 +40,13 @@ public class Resident
 	public boolean hasSelections() 
 	{
 		return sel1!=null && sel2!=null;
+	}
+	public void setCity(City c)
+	{
+		this.city=c;
+	}
+	public City getCity()
+	{
+		return city;
 	}
 }

@@ -7,6 +7,7 @@ import me.elsifo92.com.residents.Resident;
 import me.elsifo92.com.residents.ResidentManager;
 import me.elsifo92.com.terrain.AreaManager;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -91,7 +92,20 @@ public class CommandHandler implements CommandExecutor
 					{
 						if(args.length>1)
 						{
-							p.sendMessage(args[1]);
+							switch(args[1])
+							{
+								case "assistant":
+								{
+									if(args.length>3)
+									{
+										switch(args[2])
+										{
+											case "add":PoliticalManager.addAssistant(ResidentManager.getResident(p),ResidentManager.getResident(Bukkit.getPlayer(args[3])));break;
+											case "remove":PoliticalManager.removeAssistant(ResidentManager.getResident(p),ResidentManager.getResident(Bukkit.getPlayer(args[3])));break;
+										}
+									}
+								}
+							}
 							City c=PoliticalManager.getCity(args[1]);
 							if(c!=null)
 							{

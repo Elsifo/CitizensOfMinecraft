@@ -68,7 +68,7 @@ public class City
 	{
 		ArrayList<String> ris=new ArrayList<>();
 		{
-			for(Resident r:residents)
+			for(Resident r:assistants)
 			{
 				ris.add(r.getPlayer().getName());
 			}

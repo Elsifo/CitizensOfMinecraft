@@ -24,7 +24,14 @@ public class ResidentManager
 	public static Resident spawnResident(Player p, City c) 
 	{
 		Resident r=new Resident(p);
+		r.setCity(c);
 		residents.put(new Resident(p), c);
 		return r;
+	}
+	public static boolean isMayor(Resident mayor) 
+	{
+		City c=residents.get(mayor);
+		if(c==null) return false;
+		return (c.getMayor().equals(mayor));
 	}
 }

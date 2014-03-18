@@ -77,4 +77,12 @@ public class PoliticalManager
 	{
 		return cities.get(c);
 	}
+	public static void addAssistant(Resident mayor, Resident resident) 
+	{
+		if(ResidentManager.isMayor(mayor)) mayor.getCity().removeAssistant(resident);	
+	}
+	public static void removeAssistant(Resident mayor, Resident resident) 
+	{
+		if(ResidentManager.isMayor(mayor)) mayor.getCity().removeAssistant(resident);		
+	}
 }
