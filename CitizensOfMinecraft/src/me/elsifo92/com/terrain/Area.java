@@ -24,18 +24,27 @@ public class Area
 	public boolean isInArea(Location l)
 	{
 		boolean ris=false;
-		if(angle1.getBlockX()<angle2.getBlockX()) ris=(l.getBlockX()>angle1.getBlockX() && l.getBlockX()<angle2.getBlockX())?true:false;
-		else ris=(l.getBlockX()<angle1.getBlockX() && l.getBlockX()>angle2.getBlockX())?true:false;
+		if(angle1.getBlockX()<angle2.getBlockX()) ris=(l.getBlockX()>=angle1.getBlockX() && l.getBlockX()<=angle2.getBlockX())?true:false;
+		else ris=(l.getBlockX()<=angle1.getBlockX() && l.getBlockX()>=angle2.getBlockX())?true:false;
 		if(ris==false) return false;
-		if(angle1.getBlockY()<angle2.getBlockY()) ris=(l.getBlockY()>angle1.getBlockY() && l.getBlockY()<angle2.getBlockY())?true:false;
-		else ris=(l.getBlockY()<angle1.getBlockY() && l.getBlockY()>angle2.getBlockY())?true:false;
+		if(angle1.getBlockY()<angle2.getBlockY()) ris=(l.getBlockY()>=angle1.getBlockY() && l.getBlockY()<=angle2.getBlockY())?true:false;
+		else ris=(l.getBlockY()<=angle1.getBlockY() && l.getBlockY()>=angle2.getBlockY())?true:false;
 		if(ris==false) return false;
-		if(angle1.getBlockZ()<angle2.getBlockZ()) ris=(l.getBlockZ()>angle1.getBlockZ() && l.getBlockZ()<angle2.getBlockZ())?true:false;
-		else ris=(l.getBlockZ()<angle1.getBlockZ() && l.getBlockZ()>angle2.getBlockZ())?true:false;
+		if(angle1.getBlockZ()<angle2.getBlockZ()) ris=(l.getBlockZ()>=angle1.getBlockZ() && l.getBlockZ()<=angle2.getBlockZ())?true:false;
+		else ris=(l.getBlockZ()<=angle1.getBlockZ() && l.getBlockZ()>=angle2.getBlockZ())?true:false;
 		return true;
 	}
 	public UUID getID()
 	{
 		return id;
+	}
+	@Override
+	public boolean equals(Object o)
+	{
+		if(o instanceof Area)
+		{
+			return ((Area)o).getID().equals(this.id);
+		}
+		return false;
 	}
 }

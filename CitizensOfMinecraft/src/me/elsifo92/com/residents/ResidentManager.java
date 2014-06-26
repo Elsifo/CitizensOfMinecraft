@@ -1,8 +1,7 @@
 package me.elsifo92.com.residents;
 
 import java.util.HashMap;
-
-import org.bukkit.entity.Player;
+import java.util.UUID;
 
 import me.elsifo92.com.politicals.City;
 
@@ -13,15 +12,15 @@ public class ResidentManager
 	{
 		residents.put(new Resident(p), c);
 	}*/
-	public static Resident getResident(Player p)
+	public static Resident getResident(UUID p)
 	{
 		for(Resident r:residents.keySet())
 		{
-			if(r.getPlayer().getName().equals(p.getName())) return r;
+			if(r.getPlayer().equals(p)) return r;
 		}
 		return null;
 	}
-	public static Resident spawnResident(Player p, City c) 
+	public static Resident spawnResident(UUID p, City c) 
 	{
 		Resident r=new Resident(p);
 		r.setCity(c);

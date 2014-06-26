@@ -3,6 +3,8 @@ package me.elsifo92.com.politicals;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import org.bukkit.Bukkit;
+
 import me.elsifo92.com.residents.Resident;
 
 public class City 
@@ -60,7 +62,7 @@ public class City
 		ArrayList<String> ris=new ArrayList<>();
 		for(Resident r:residents)
 		{
-			ris.add(r.getPlayer().getName());
+			ris.add(Bukkit.getPlayer(r.getPlayer()).getName());
 		}
 		return ris;
 	}
@@ -70,7 +72,7 @@ public class City
 		{
 			for(Resident r:assistants)
 			{
-				ris.add(r.getPlayer().getName());
+				ris.add(Bukkit.getPlayer(r.getPlayer()).getName());
 			}
 		}
 		return ris;

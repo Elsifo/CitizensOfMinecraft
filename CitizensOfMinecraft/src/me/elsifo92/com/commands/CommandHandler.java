@@ -26,19 +26,19 @@ public class CommandHandler implements CommandExecutor
 				{
 					case "sel1": 
 					{
-						Resident r=ResidentManager.getResident(p);
+						Resident r=ResidentManager.getResident(p.getUniqueId());
 						if(r==null) return true;
 						r.setSelection1(p.getLocation());
 					}break;
 					case "sel2": 
 					{
-						Resident r=ResidentManager.getResident(p);
+						Resident r=ResidentManager.getResident(p.getUniqueId());
 						if(r==null) return true;
 						r.setSelection2(p.getLocation());
 					}break;
 					case "claim": 
 					{
-						Resident r=ResidentManager.getResident(p);
+						Resident r=ResidentManager.getResident(p.getUniqueId());
 						if(r==null) return true;
 						if(r.hasSelections()) AreaManager.newArea(r.getSelection1(), r.getSelection2(), null);
 					}break;
@@ -55,7 +55,7 @@ public class CommandHandler implements CommandExecutor
 										Nation n=PoliticalManager.getNation(args[3]);
 										if(n!=null)	
 										{
-											PoliticalManager.createCity(args[2],p,n);
+											PoliticalManager.createCity(args[2],p.getUniqueId(),n);
 										}
 										else p.sendMessage("Nation not found");
 								
@@ -100,8 +100,8 @@ public class CommandHandler implements CommandExecutor
 									{
 										switch(args[2])
 										{
-											case "add":PoliticalManager.addAssistant(ResidentManager.getResident(p),ResidentManager.getResident(Bukkit.getPlayer(args[3])));break;
-											case "remove":PoliticalManager.removeAssistant(ResidentManager.getResident(p),ResidentManager.getResident(Bukkit.getPlayer(args[3])));break;
+											case "add":PoliticalManager.addAssistant(ResidentManager.getResident(p.getUniqueId()),ResidentManager.getResident(Bukkit.getPlayer(args[3]).getUniqueId()));break;
+											case "remove":PoliticalManager.removeAssistant(ResidentManager.getResident(p.getUniqueId()),ResidentManager.getResident(Bukkit.getPlayer(args[3]).getUniqueId()));break;
 										}
 									}
 								}
@@ -111,7 +111,7 @@ public class CommandHandler implements CommandExecutor
 							{
 								p.sendMessage("=========="+c.getName()+"============");
 								p.sendMessage("Nation: "+PoliticalManager.getNation(c).getName());
-								p.sendMessage("Mayor: "+c.getMayor().getPlayer().getName());
+								p.sendMessage("Mayor: "+Bukkit.getPlayer(c.getMayor().getPlayer()).getName());
 								String s="Assistants: ";
 								for(String as:c.getAssistantsNames())
 								{

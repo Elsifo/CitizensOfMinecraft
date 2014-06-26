@@ -1,5 +1,5 @@
 name: CitizenOfMinecraft
-version: 0.0.2-ALPHA
+version: 0.0.3-ALPHA
 main: me.elsifo92.com.Citizen
 commands:
   com:

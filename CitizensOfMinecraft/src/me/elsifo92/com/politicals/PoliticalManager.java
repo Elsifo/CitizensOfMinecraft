@@ -8,14 +8,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.UUID;
 
-import org.bukkit.entity.Player;
-
 public class PoliticalManager 
 {
 	private static ArrayList<Nation> nations=new ArrayList<>();
 	private static HashMap<City,Nation> cities=new HashMap<>();
 	private static HashMap<String,City> search=new HashMap<>();
-	public static void createCity(String name, Player p, Nation n)
+	public static void createCity(String name, UUID p, Nation n)
 	{
 		City c=new City(name,null);
 		Resident r=ResidentManager.spawnResident(p, c);

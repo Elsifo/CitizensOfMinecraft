@@ -1,25 +1,26 @@
 package me.elsifo92.com.residents;
 
+import java.util.UUID;
+
 import me.elsifo92.com.politicals.City;
 
 import org.bukkit.Location;
-import org.bukkit.OfflinePlayer;
 
 public class Resident 
 {
-	private OfflinePlayer p;
+	private UUID player;
 	private Location sel1;
 	private Location sel2;
 	private City city;
-	public Resident(OfflinePlayer p)
+	public Resident(UUID player)
 	{
-		this.p=p;
+		this.player=player;
 		sel1=null;
 		sel2=null;
 	}
-	public OfflinePlayer getPlayer()
+	public UUID getPlayer()
 	{
-		return p;
+		return player;
 	}
 	public void setSelection1(Location sel1)
 	{
